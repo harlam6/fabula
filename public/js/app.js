@@ -5,7 +5,7 @@
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 34.052, lng: -118.243},
           zoom: 12
-          
+
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -57,8 +57,7 @@
           var marker = new google.maps.Marker({
             position: feature.position,
             icon: icons.tape,
-            map: map, 
-            draggable:true
+            map: map,
           });
            marker.addListener('click', function() {
       infowindow.open(map, marker);
@@ -94,5 +93,3 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-   
