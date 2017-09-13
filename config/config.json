@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "todolist",
+    "password": "spanish",
+    "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
