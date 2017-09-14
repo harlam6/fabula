@@ -46,10 +46,10 @@ $(document).ready(function() {
     }
   });
 
-  // Submits a new post and brings user to blog page upon completion
+  // Submits a new audiopost and brings user to map page upon completion
   function submitPost(Post) {
     $.post("/api/posts/", Post, function() {
-      window.location.href = "/blog";
+      window.location.href = "/map";
     });
   }
 
@@ -77,7 +77,7 @@ $(document).ready(function() {
       data: post
     })
     .done(function() {
-      window.location.href = "/blog";
+      window.location.href = "/map";
     });
   }
 });
