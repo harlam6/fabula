@@ -49,7 +49,7 @@ module.exports = function(app) {
     console.log(req.body);
     db.Post.create({
       title: req.body.title,
-      body: req.body.body,
+      description: req.body.description,
       category: req.body.category
     })
     .then(function(dbPost) {
@@ -71,7 +71,7 @@ module.exports = function(app) {
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body,
+    db.Post.update(req.description,
       {
         where: {
           id: req.body.id
