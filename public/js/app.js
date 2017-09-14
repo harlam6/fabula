@@ -52,9 +52,9 @@
       '</div>'+
       '</div>';
 
-        var infowindow = new google.maps.InfoWindow({
-        content: contentString
-        });
+        // var infowindow = new google.maps.InfoWindow({
+        // content: contentString
+        // });
 
         // Create markers.
         features.forEach(function(feature) {
@@ -67,6 +67,73 @@
       infowindow.open(map, marker);
       });
         });
+
+
+        // add markers
+    google.maps.event.addListener(map, 'click', function (event) {
+        placeMarker(event.latLng);
+          saveMarker(event);
+         alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
+       });
+
+
+    //map.data.setControls(['Point']);
+    bindDataLayerListeners(map.data);
+
+    //load saved data
+    loadMarkers(map);
+
+
+
+        // place marker function
+  function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+    });
+
+
+
+        // info window for marker functions
+    var infowindow = new google.maps.InfoWindow({
+        content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng() + '<audio controls>'+
+        '<source src="horse.mp3" type="audio/mpeg">'+
+        'Your browser does not support the audio element.'+
+      '</audio>'
+    });
+    infowindow.open(map, marker);
+    map.data.add(new google.maps.Data.Feature({properties:{},geometry:new google.maps.Data.Point(location)}));
+}
+
+
+function bindDataLayerListeners(dataLayer) {
+    dataLayer.addListener('addfeature', saveMarker);
+    dataLayer.addListener('removefeature', saveMarker);
+    //dataLayer.addListener('setgeometry', saveMarker);
+}
+
+
+//store to local host
+
+function saveMarker() {
+    map.data.toGeoJson(function (json) {
+        localStorage.setItem('geoData', JSON.stringify(json));
+    });
+}
+
+
+function clearMarkers() {
+    map.data.forEach(function (f) {
+        map.data.remove(f);
+    });
+}
+
+function loadMarkers(map) {
+    var data = JSON.parse(localStorage.getItem('geoData'));
+    map.data.addGeoJson(data);
+}
+
+
 
 
         // Try HTML5 geolocation.
