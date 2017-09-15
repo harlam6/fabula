@@ -1,33 +1,21 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "spanish",
-=======
-    "password": "Bobasaur6^",
->>>>>>> 913a844096016f16e613c734de5a689065cde347
     "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-<<<<<<< HEAD
     "password": "spanish",
-=======
-    "password": "Bobasaur6^",
->>>>>>> 913a844096016f16e613c734de5a689065cde347
     "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-<<<<<<< HEAD
     "password": "spanish",
-=======
-    "password": "Bobasaur6^",
->>>>>>> 913a844096016f16e613c734de5a689065cde347
     "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
