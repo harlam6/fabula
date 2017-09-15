@@ -54,9 +54,7 @@ http.createServer(function(req, res) {
 
     return;
   }
-  form.on('fileBegin', function(name, file) {
-    file.path =
-});
+
 
   // show a file upload form
   res.writeHead(200, {'content-type': 'text/html'});
