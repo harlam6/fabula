@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "spanish",
     "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "n",
-    "database": "noodles^",
+    "password": "spanish",
+    "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "n",
-    "database": "noodles^",
+    "password": "spanish",
+    "database": "storylock",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
