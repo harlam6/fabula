@@ -44,8 +44,10 @@ var formidable = require('formidable'),
 http.createServer(function(req, res) {
   if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
     // parse a file upload
-    var form = new formidable.IncomingForm();
-
+    var form = new formidable.IncomingForm({
+      uploadDir: __dirname + '/assets/images',  // don't forget the __dirname here
+      keepExtensions: true
+    });
     form.parse(req, function(err, fields, files) {
       res.writeHead(200, {'content-type': 'text/plain'});
       res.write('received upload:\n\n');
