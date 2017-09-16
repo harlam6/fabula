@@ -27,6 +27,11 @@
 						<br />
 						<label for="description">Description:</label>
 						<textarea class="form-control" rows="10" id="description"></textarea>
+						<form action="/upload" enctype="multipart/form-data" method="post">
+							<input type="text" name="Audio File"><br>
+							<input type="file" name="upload" multiple="multiple"><br>
+							<input type="submit" value="Upload">
+							</form>
 						<div class="form-group">
 							<label for="category">Select Category:</label>
 							<select class="form-control" id="category">
