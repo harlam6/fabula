@@ -26,4 +26,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/map.html"));
   });
 
+  app.get('/upload', function(req, res){
+  res.sendFile(path.join(__dirname, 'views/index.html'));
+});
+
 };
