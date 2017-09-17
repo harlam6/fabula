@@ -6,14 +6,16 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
+var http = require('http');
+var util = require('util');
+var path = require('path');
 
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 1776;
+var PORT = process.env.PORT || 7000;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -36,7 +38,42 @@ require("./routes/html-routes.js")(app);
 // =============================================================
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT 2000 " + PORT);
   });
 });
 
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, 'views/index.html'));
+});
+
+app.post('/upload', function(req, res){
+
+  // create an incoming form object
+  var form = new formidable.IncomingForm();
+
+  // specify that we want to allow the user to upload multiple files in a single request
+  form.multiples = true;
+
+  // store all uploads in the /uploads directory
+  form.uploadDir = path.join(__dirname, '/assets/audio');
+
+  // every time a file has been uploaded successfully,
+  // rename it to it's orignal name
+  form.on('file', function(field, file) {
+    fs.rename(file.path, path.join(form.uploadDir, file.name));
+  });
+
+  // log any errors that occur
+  form.on('error', function(err) {
+    console.log('An error has occured: \n' + err);
+  });
+
+  // once all the files have been uploaded, send a response to the client
+  form.on('end', function() {
+    res.end('success');
+  });
+
+  // parse the incoming request containing the form data
+  form.parse(req);
+
+});
