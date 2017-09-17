@@ -52,10 +52,10 @@ app.post('/upload', function(req, res){
   var form = new formidable.IncomingForm();
 
   // specify that we want to allow the user to upload multiple files in a single request
-  form.multiples = true;
+  
 
   // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/assets/audio');
+  form.uploadDir = path.join(__dirname, '/public/assets/audio');
 
   // every time a file has been uploaded successfully,
   // rename it to it's orignal name

@@ -176,7 +176,7 @@ var contentString = '<div id="content">'+
       'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
       '(last visited June 22, 2009).</p>'+
       '<audio controls>'+
-        '<source src="demo." type="audio/mpeg">'+
+        '<source src="../assets/audio/rhcp.mp3" type="audio/mp3">'+
         'Your browser does not support the audio element.'+
       '</audio>'+
       '</div>'+
