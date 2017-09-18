@@ -1,0 +1,32 @@
+{
+  "name": "fabula",
+  "version": "1.0.0",
+  "description": "This is a geo-cache of podcasts around your area.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "formidable": "^1.1.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "^4.0.2",
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.2",
+    "path": "^0.12.7",
+    "sequelize": "^4.8.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinierrick/fabula.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinierrick/fabula/issues"
+  },
+  "homepage": "https://github.com/tinierrick/fabula#readme"
+}
