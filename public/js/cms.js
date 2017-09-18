@@ -68,7 +68,7 @@ $(document).ready(function() {
       }
     });
   }
-
+  
   // Update a given post, bring user to the blog page when done
   function updatePost(post) {
     $.ajax({
